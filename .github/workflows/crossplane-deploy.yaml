@@ -13,7 +13,7 @@ jobs:
       - name: Start Minikube
         run: |
           # Start Minikube (already installed)
-          sudo minikube start --driver=docker
+          sudo minikube start --driver=none
 
       - name: Install kubectl
         uses: azure/setup-kubectl@v3
