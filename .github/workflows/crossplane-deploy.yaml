@@ -10,16 +10,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Kind Cluster
+      - name: Start Minikube
         run: |
-          # Install Kind
-          [ "$(uname -m)" = "arm64" ] && ARM64="arm64" || ARM64=""
-          curl -Lo ./kind "https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-${ARM64}"
-          chmod +x ./kind
-          sudo mv ./kind /usr/local/bin/kind
-          
-          # Create Kind cluster
-          kind create cluster --name crossplane-kind
+          # Start Minikube (already installed)
+          sudo minikube start --driver=docker
 
       - name: Install kubectl
         uses: azure/setup-kubectl@v3
