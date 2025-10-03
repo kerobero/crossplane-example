@@ -51,9 +51,9 @@ jobs:
           kubectl apply -f composition.yaml
           kubectl apply -f app.yaml
 
-      - name: Wait for App Deployment
-        run: |
-          kubectl wait composite.apiextensions.crossplane.io/portal-app --for condition=Ready --timeout=5m
+      # - name: Wait for App Deployment
+      #   run: |
+      #     kubectl wait composite.apiextensions.crossplane.io/portal-app --for condition=Ready --timeout=5m
 
       - name: Verify Crossplane Deployment
         run: |
