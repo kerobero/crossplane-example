@@ -16,10 +16,11 @@ jobs:
           [ "$(uname -m)" = "arm64" ] && ARM64="arm64" || ARM64=""
           curl -Lo ./kind "https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-${ARM64}"
           chmod +x ./kind
-          sudo mv ./kind /usr/local/bin/kind
+          ./kind version
+          # sudo mv ./kind /usr/local/bin/kind
           
           # Create Kind cluster
-          kind create cluster --name crossplane-kind
+          # kind create cluster --name crossplane-kind
 
       - name: Install kubectl
         uses: azure/setup-kubectl@v3
