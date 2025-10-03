@@ -1,0 +1,8 @@
+apiVersion: example.crossplane.io/v1
+kind: App
+metadata:
+  namespace: default
+  name: portal-app
+spec:
+  image: nginx
+  replicas: 5
