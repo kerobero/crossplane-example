@@ -34,15 +34,15 @@ jobs:
           helm repo update
           helm install crossplane crossplane-stable/crossplane --namespace crossplane-system --create-namespace --wait
 
-      - name: Install Crossplane CLI
-        run: |
-          curl -sL https://raw.githubusercontent.com/crossplane/crossplane/master/install.sh | sh
-          sudo mv kubectl-crossplane /usr/local/bin
+      # - name: Install Crossplane CLI
+      #   run: |
+      #     curl -sL https://raw.githubusercontent.com/crossplane/crossplane/master/install.sh | sh
+      #     sudo mv kubectl-crossplane /usr/local/bin
 
-      - name: Install Provider Kubernetes
-        run: |
-          kubectl crossplane install provider crossplane/provider-kubernetes:v0.12.0
-          kubectl wait provider.pkg crossplane-provider-kubernetes --for condition=Healthy --timeout=5m
+      # - name: Install Provider Kubernetes
+      #   run: |
+      #     kubectl crossplane install provider crossplane/provider-kubernetes:v0.12.0
+      #     kubectl wait provider.pkg crossplane-provider-kubernetes --for condition=Healthy --timeout=5m
 
       - name: Deploy Crossplane Configuration
         run: |
